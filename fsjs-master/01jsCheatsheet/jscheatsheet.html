@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JS Cheat Sheet</title>
+</head>
+<body>
+<script type="text/javascript">
+//dev tools
+	//this is a comment
+
+	/* multi line 
+	comment */
+
+	//alert("hello world");
+
+	console.log("hi bob");
+
+	document.write("<h1>this renders as html</h1>");
+
+	x = 15;
+	y = 1;
+
+	//basic mathematics
+	document.write("<b>x = "+ x +" and y = "+ y+ "</b>");
+	document.write("<hr>");
+
+	document.write("<b>Add: </b>");
+	document.write(x+y);
+	document.write("<hr>");
+
+	document.write("<b>Subtract: </b>");
+	document.write(x-y);
+	document.write("<hr>");
+
+	document.write("<b>Multiply: </b>");
+	document.write(x*y);
+	document.write("<hr>");
+
+	document.write("<b>Divide: </b>");
+	document.write(x/y);
+	document.write("<hr>");
+
+	document.write("<b>Modulus: </b>");
+	document.write(x%y);
+	document.write("<hr>");
+
+	//increments and decrements
+	document.write("<b>Increments look like this: x=x+1: </b>");
+	document.write(x=x+1);
+	document.write("<hr>");
+	
+	document.write("<b>But you can shorthand using ++x: </b>");
+	document.write(++x);
+	document.write("<hr>");
+	
+	document.write("<b>Declare increment after statement x++: </b>");
+	document.write(x++);
+	document.write("<hr>");
+	document.write("<b>Call x again and the value is now: </b>");
+	document.write(x);
+	document.write("<hr>");
+
+	document.write("<b>Same with decrements like --x: </b>");
+	document.write(--x);
+	document.write("<hr>");
+
+	document.write(x--);
+	document.write("<hr>");
+
+	document.write(x);
+	document.write("<hr>");
+
+	//assignment operators
+	document.write("<b>Updating a variables, x=x+12...</b> ");
+	document.write(x=x+12);
+	document.write("<hr>");
+
+	document.write("<b>now x is: </b>");
+	document.write(x);
+	document.write("<hr>");
+
+	document.write("<b>You can shorthand like this, x+=12: </b> ");
+	document.write(x+=12);
+	document.write("<hr>");
+
+	document.write(x-=12);
+	document.write("<hr>");
+
+	document.write(x*=12);
+	document.write("<hr>");
+
+	document.write(x/=12);
+	document.write("<hr>");
+
+	//boolean datatype
+	document.write("<b>Booleans are either true or false: </b>");
+	document.write("<hr>");
+
+	a = true;
+	document.write(a);
+	document.write("<hr>");
+
+	document.write(!a);
+	document.write("<hr>");
+
+	//strings
+	document.write("<b>Strings are text. adding strings will concatenate</b>");
+	document.write("<hr>");
+
+	w = '1';
+	z = "2";
+
+	document.write(w);
+	document.write("<hr>");
+
+	document.write(w + z);
+	document.write("<hr>");
+	
+	document.write("<b>Adding strings AND numbers will also concatenate: </b>");
+	document.write(x + z);
+	document.write("<hr>");
+
+	document.write("<b>But you can convert a string to number: </b>");
+	document.write(x + Number(z));
+	document.write("<hr>");
+
+	// Concatination
+	document.write("<b>Some examples on how to concat: </b>");
+	document.write("<hr>");
+
+	m = "Marco";
+	p = "Polo";
+	document.write(m + p);
+	document.write("<hr>");
+
+	document.write(m +' '+ p);
+	document.write("<hr>");
+
+	document.write(m.concat(' ',p));
+	document.write("<hr>");
+
+	m+=p;
+	document.write(m);
+	document.write("<hr>");
+
+	//string properties
+	document.write("<b>Common characters to escape with examples on how to use quotes</b>");
+	document.write("<hr>");
+
+	document.write( "\' \" \\ \n \r \t" );
+	document.write("<hr>");
+
+	document.write('she says, "meet me there"');
+	document.write("<hr>");
+
+	document.write("i heard \"she said, \'meet me there\'\"");
+	document.write("<hr>");
+
+	//indexing strings
+	document.write("<b>Indexing strings: </b>");
+	document.write("<br>");
+	longstr = "The quick brown fox jumps over the lazy dog.";
+	document.write(longstr);
+	document.write("<hr>");
+
+	document.write(longstr.indexOf('fox'));
+	document.write("<hr>");
+
+	document.write(longstr.search('The'));
+	document.write("<hr>");
+
+	document.write(longstr.lastIndexOf('o'));
+	document.write("<hr>");
+
+	document.write(longstr.lastIndexOf('zorro'));
+	document.write("<hr>");
+
+	document.write("<b>Count string characters: </b>");
+	document.write("<br>");
+	document.write(longstr.length);
+	document.write("<hr>");
+
+	document.write("<b>Other common JS methods for strings: </b>");
+	document.write("<br>");
+	document.write(longstr.charAt(4));
+	document.write("<hr>");
+
+	document.write(longstr.charCodeAt(4));
+	document.write("<hr>");
+
+	document.write(longstr.endsWith('.'));
+	document.write("<hr>");
+
+	document.write(longstr.repeat(3));
+	document.write("<hr>");
+
+	document.write("<b>Trimming strings. Compare in Dev tools: </b>");
+	document.write("<br>");
+	trimThis = " needs trim ";
+	document.write(trimThis);
+	document.write("<hr>");
+
+	document.write(trimThis.trim());
+	document.write("<hr>");
+
+	//extracting strings
+	document.write("<b>Extract from string: </b>");
+	document.write("<br>");
+	document.write("<b>Slice from left using index start and end positions. *note end positions are counted up to but not included in result...</b>");
+	document.write("<br>");
+	dogStr = longstr.slice(40, 43);
+	document.write(dogStr);
+	document.write("<hr>");
+
+	document.write("<b>...or slice from right...</b>");
+	dogStr2 = longstr.slice(-4, -1);
+	document.write(dogStr2);
+	document.write("<hr>");
+
+	document.write("<b>...or use substring...</b>");
+	dogStr3 = longstr.substring(40, 43);
+	document.write(dogStr3);
+	document.write("<hr>");
+
+	document.write("<b>...or use substr. Great if you need to count a specific amount over from the left start position...</b>");
+	document.write("<br>");
+	dogStr4 = longstr.substr(40, 3);
+	document.write(dogStr4);
+	document.write("<hr>");
+
+	document.write("<b>... or substr from right</b>");
+	document.write("<br>");
+	dogStr5 = longstr.substr(-4, 3);
+	document.write(dogStr5);
+	document.write("<hr>");
+
+	//editing strings
+	document.write("<b>Edit strings: </b>");
+	document.write("<br>");
+	document.write(longstr.replace('fox','zorro'));
+	document.write("<hr>");
+
+	document.write(longstr.replace(/o/g,'a'));
+	document.write("<hr>");
+
+	document.write(longstr);
+	document.write("<hr>");
+
+	document.write(longstr.toUpperCase());
+	document.write("<hr>");
+
+	document.write(longstr.toLowerCase());
+	document.write("<hr>");
+
+	//convert string to array
+	document.write("<b>Convert string to array: </b>");
+	document.write("<br>");
+	document.write(longstr.split(' '));
+	document.write("<hr>");
+
+	//arrays
+	document.write("<b>Arrays are lists, like:</b>");
+	document.write("<br>");
+	arr = ['dad','mom','child'];
+	document.write(arr);
+	document.write("<hr>");
+
+	document.write(arr.toString());
+	document.write("<hr>");
+
+
+	document.write("<b>Here are common JS methods for arrays</b>");
+	document.write("<br>");
+	//array sorting
+	document.write(arr.sort());
+	document.write("<hr>");
+
+	//array reverse sorting
+	document.write(arr.reverse());
+	document.write("<hr>");
+
+	document.write(arr);
+	document.write("<hr>");
+
+	//call index of array
+	document.write(arr[0]);
+	document.write("<hr>");
+
+	//get index of item in array
+	document.write(arr.indexOf('child'));
+	document.write("<hr>");
+
+	//change the delimiter
+	document.write(arr.join(' | '));
+	document.write("<hr>");
+
+	//add to array
+	arr.push('granny');
+	document.write(arr);
+	document.write("<hr>");
+
+	//update item value
+	arr[2] = "grandpa";
+	document.write(arr);
+	document.write("<hr>");
+
+	//remove last item
+	arr.pop();
+	document.write(arr);
+	document.write("<hr>");
+
+	//remove first item
+	arr.shift();
+	document.write(arr);
+	document.write("<hr>");
+
+	//add to begginning
+	arr.unshift('mommy');
+	document.write(arr);
+	document.write("<hr>");
+
+	//clear the value of item
+	delete arr[0];
+	document.write(arr);
+	document.write("<hr>");
+
+	//another update and add
+	arr.splice(2,2,"Uncle", "Aunt");
+	document.write(arr);
+	document.write("<hr>");
+
+	//add through concat
+	arr2 = ['mommy', 'granny'];
+	document.write(arr.concat(arr2));
+	document.write("<hr>");
+
+	//extract from array
+	arr3 = arr.slice(1,3);
+	document.write(arr3);
+	document.write("<hr>");
+
+	//count items
+	document.write(arr.length);
+	document.write("<hr>");
+
+	//sorting numbers
+	points = [40, 100, 1, 5, 25, 10];
+	document.write("<b>number sorting requires a bit of custom code. Here's an array of Numbers: </b>");
+	document.write("<br>");
+	document.write(points);
+	document.write("<hr>");
+
+	document.write("<b>Just using sort method results in the following: </b>");
+	document.write("<br>");
+	//incorrect sort of numbers
+	document.write(points.sort());
+	document.write("<hr>");
+
+	document.write("<b>Use this function of sort correctly: </b>");
+	document.write("<br>");
+	//sort numbers correctly
+	document.write(points.sort(function(a,b){
+		//document.write((a+'-'+b+'=')+(a-b)+'<br>');
+		return a-b;
+	}));
+	document.write("<hr>");
+
+	//multidimensional arrays
+	document.write("<b>Multidimensional arrays are lists glued together like a spreadsheet</b>");
+	document.write("<br>");
+	//2 arrays
+	instruments = ['guitar','drums','bass'];
+	genre = ['rock','hip hop','classical'];
+	document.write(instruments);
+	document.write("<br>");
+	document.write(genre);
+	document.write("<hr>");
+
+	//join them into 1 array
+	musicHobbies = [instruments,genre];
+	document.write(musicHobbies);
+	document.write("<hr>");
+
+	//call items using 2 index calls for 'column' and 'row'
+	document.write(musicHobbies[0][1]);
+	document.write("<hr>");
+
+
+	document.write("<b>Finally we have objects. Similar to arrays, where keys are used instead of indexes</b>");
+	document.write("<br>");
+
+	//this is an object
+	superhero = {
+		fname:'Clark',
+		lname:'Kent',
+		hname:'Super man',
+		glasses:false,
+		powers:12,
+		weaknesses:2
+	};
+
+	//call object by key to get it's value
+	document.write(superhero['hname']);
+	document.write("<br>");
+	document.write(superhero.lname);
+	document.write("<hr>");
+
+	//another example
+	celeb = {
+		firstn:"lady",
+		lastn:'gaga',
+		specialty:"imitating madonna",
+		fullname: function(){
+			return this.firstn + " " + this.lastn;
+		}
+	};
+	//add values to object
+	celeb['genre'] = "pop";
+	celeb['tophits'] = 2;
+	//or update value
+	celeb['tophits'] = 20;
+
+	document.write(celeb.genre);
+	document.write("<br>");
+	document.write(celeb.specialty);
+	document.write("<br>");
+	document.write(celeb.tophits);
+	document.write("<hr>");
+
+	//call an objects definition
+	document.write(celeb.fullname);
+	document.write("<br>");
+	//call an objects value
+	document.write(celeb.fullname());
+	document.write("<hr>");
+
+	//comparisons
+	document.write("<b>Compare values to return booleans</b>");
+	document.write("<br>");
+
+	document.write("5 is equal to 10: ");
+	document.write(5 == 10);
+	document.write("<br>");
+
+	document.write("5 is equal to 5: ");
+	document.write(5 == 5);
+	document.write("<br>");
+
+	document.write("'5' is equal to 5: ");
+	document.write('5' == 5);
+	document.write("<br>");
+
+	document.write("'5' is equal to 5: ");
+	document.write('5' === 5);
+	document.write("<br>");
+
+	document.write("5 is less than 10: ");
+	document.write(5 < 10);
+	document.write("<br>");
+
+	document.write("5 is less than or equal to 10: ");
+	document.write(5 <= 10);
+	document.write("<br>");
+
+	document.write("5 is greater than 10: ");
+	document.write(5 > 10);
+	document.write("<br>");
+
+	document.write("5 is greater than or equal to 10: ");
+	document.write(5 >= 10);
+	document.write("<hr>");
+
+	//logical operators
+	c1 = 5;
+	c2 = 10;
+	document.write("<b>Use logical operators, AND, OR, or NOT to run multiple comparisons:</b>");
+	document.write("<br>");
+
+	document.write("5 is less than 10 ");
+	document.write("and 5 is greater than 0: ");
+	document.write((c1 < 10) && (c1 > 0));
+	document.write("<br>");
+
+	document.write("5 is equal to 10 ");
+	document.write("or 5 is greater than 0: ");
+	document.write((c1 == 10) || (c1 > 0));
+	document.write("<br>");
+
+	document.write("5 is equal to 10 ");
+	document.write("or 5 is less than 0: ");
+	document.write((c1 == 10) || (c1 < 0));
+	document.write("<br>");
+
+	document.write("5 is NOT equal to 10 ");
+	document.write("or 5 is NOT less than 0: ");
+	document.write(!(c1 == 10) || (c1 < 0));
+	document.write("<br>");
+
+
+	document.write("5 is NOT equal to 10 ");
+	document.write("and 5 is NOT less than 0: ");
+	document.write(!((c1 == 10) && (c1 < 0)));
+	document.write("<hr>");
+
+	//conditionals
+	document.write("<b>Use conditionals to run code if specify criteria are met</b>");
+	document.write("<br>");
+
+	//the variable to check
+	myColor= "green";
+
+	//ternary shorthand
+	display = (myColor == 'red')? myColor + " is my favorite color!" : myColor + " is not my favorite color!";
+	document.write(display);
+	document.write("<hr>");
+
+	//if statement
+	if((myColor == "red") || (myColor == "blue") ){
+		document.write(myColor + " is my favorite color!");
+	} else if (myColor == "orange") {
+		document.write(myColor + " is my least favorite color!");
+	} else {
+		document.write(myColor + " is not my favorite color!");
+	}
+	document.write("<hr>");
+
+	//switch statement
+	switch (myColor){
+		case 'red':
+		case 'blue':
+			document.write(myColor + " is my favorite color!");
+			break;
+		case 'orange':
+			document.write(myColor + " is my least favorite color!");
+			break;
+		default:
+			document.write(myColor + " is not my favorite color!");
+	};
+	document.write('<hr>');
+
+	//functions
+	document.write('<b>Functions are blocks of code</b><br>');
+	document.write('<b>After defined call the function to execute: </b> <br>');
+	//basic function
+	function playFunc(){
+		no1 = 100;
+		var no2 = 1;
+		document.write('lets add things together: ');
+		document.write(no1 + no2);
+	};
+	playFunc();
+	document.write('<hr>');
+
+	//function with parameters and reutrns
+	function sum10(n1,n2){
+		return (n1 + n2) * 10;
+	};
+	document.write(sum10(5,5));
+	document.write('<hr>');
+
+	//function Expression or anonymous function
+	exFunc = function(p1){
+		document.write(p1 * 10);
+	};
+	exFunc(2);
+	document.write('<hr>');
+
+	//self-envoked function
+	(function (){
+		document.write('this executed without a call');
+	})();
+
+	//this refers to an instance
+	function myFunction(){
+		return this;
+	};
+	console.log(myFunction());
+	document.write('<hr>');
+
+	//Loops
+	document.write('<b>loops execute a set amount of times</b><br>');
+
+	//basic for loop example
+	document.write('<b>For loop example 1</b><br>');
+	for(var i = 0; i < 10; ++i){
+		document.write(i + '<br>');
+	};
+	document.write('<hr>');
+
+	//another example
+	document.write('<b>For loop example 2</b><br>');
+	beers=['corona', 'modelo', 'heineken', 'bud'];
+	for (var i = 0; i < beers.length; ++i){
+		document.write(i +': '+ beers[i] +'<br>');
+	}
+	document.write('<hr>');
+
+	//for in loop
+	document.write('<b>for in loop example</b><br>');
+	for (var i in beers){
+		document.write(i +': '+ beers[i] +'<br>');
+	}
+	document.write('<hr>');
+
+	//while loop
+	document.write('<b>While loop example</b><br>');
+	var i = 0;
+	while(i < beers.length){
+		document.write(i +': '+ beers[i] +'<br>');
+		++i;
+	};
+	document.write('<hr>');
+
+	//do while loop
+	document.write('<b>Do/While loop example</b><br>');
+	var i= 0;
+	do{
+		document.write(i +': '+ beers[i] +'<br>');
+		++i;
+	}
+	while(i < beers.length);
+	document.write('<hr>');
+
+	//for in loop with objects
+	document.write('<b>For/In loop example</b>');
+	person = {
+		fname:'Peter',
+		lname:'Parker',
+		id: 1234
+	};
+
+	for(v in person){
+		document.write('<p>' + v+": "+person[v] + '</p>');
+	}
+</script>
+</body>
+</html>

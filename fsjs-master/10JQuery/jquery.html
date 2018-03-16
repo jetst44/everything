@@ -1,0 +1,220 @@
+<!doctype html>
+<html>
+<head>
+	<title>jQuery, Event Handling and JS Time</title>
+
+	<!-- first include jquery scripts-->
+	<script src="js/jquery.js"></script>
+	<script src="js/jquery-ui.js"></script>
+	<script>
+		//$(SELECTOR).METHOD( function(){DO THIS} );
+
+		//initialize JS when the document is loaded
+		$(document).ready(function() {
+
+			//track the keys after pressed and display input value somewhere.
+			$("#userName").keyup(function() {
+				//assign an input value to 'username' variable
+				var username = $("#userName").val();
+				//add value as html in a container
+				$('#user').html(username);
+			});
+
+			//track the keys on press and display the input value. find the subtle difference.
+			$("#userName2").keypress(function() {
+				var username = $("#userName2").val();
+				$('#user2').html(username);
+			});
+
+			//ways to index items
+			var p = $('p')[0];
+			$(p).css('color', '#f00');
+			$($('p')[1]).css('color', '#999');
+			$('p').eq(2).css('color', '#ccc');
+
+
+			//click events and various ways to show and hide elements
+			$("#click").click(function() {
+				//		$("#reaction").hide();
+				//		$("#reaction").show(2000);
+				//		$("#reaction").toggle();
+				//		$("#reaction").fadeIn(2000);
+				//		$("#reaction").fadeOut(2000);
+				//		$("#reaction").fadeToggle(2000);
+				$("#reaction").animate({
+					width: "toggle",
+					height: "toggle"
+				}, {
+					duration: 2000,
+					specialEasing: {
+						// width: "linear",
+						height: "easeOutBounce"
+					},
+					complete: function() {
+						$(this).after("<div> Animation complete. </div>");
+					}
+				});
+			});
+
+			$("#click2").dblclick(function() {
+				$("#reaction2").html('<p>double click</p>');
+			});
+
+			//loop through dataset and populate an html table
+			people = {
+				'John': {
+					age: 25,
+					gender: 'boy'
+				},
+				'Jessie': {
+					age: 30,
+					gender: 'girl'
+				},
+				'Johanna': {
+					age: 28,
+					gender: 'girl'
+				},
+				'Joy': {
+					age: 15,
+					gender: 'girl'
+				},
+				'Mary': {
+					age: 28,
+					gender: 'girl'
+				},
+				'Peter': {
+					age: 95,
+					gender: 'boy'
+				},
+				'Sebastian': {
+					age: 50,
+					gender: 'boy'
+				},
+				'Erika': {
+					age: 27,
+					gender: 'girl'
+				},
+				'Patrick': {
+					age: 40,
+					gender: 'boy'
+				},
+				'Samantha': {
+					age: 60,
+					gender: 'girl'
+				}
+			};
+
+			$.each(people, function(key, value) {
+				$('#listPeople').append('<tr><td>' + key + '</td><td>' + value.age + '</td><td>' + value.gender + '</td></tr>');
+			});
+
+			//create some JS date objects
+			now = new Date();
+			yest = new Date();
+			day28 = new Date();
+
+			//find yesterday, then format date
+			yest.setDate(now.getDate() - 1);
+			yest = $.datepicker.formatDate('M d, yy', yest);
+
+			//offset date by 28 days, then format date
+			day28.setDate(now.getDate() + 28);
+			day28 = $.datepicker.formatDate('M d, yy', day28);
+
+			$("#thisDate").html('<p>' + now + '</p><p>' + yest + '</p><p>' + day28 + '</p>');
+
+			//transversals
+			$('.clicker').click(function() {
+				$(this).parents('#commonAncestor').find('.targetContainer div div p').css({
+					color: '#f00',
+					background: '#ccc'
+				});
+			});
+
+		});
+
+	</script>
+</head>
+<body>
+	<input type="text" id="userName" placeholder="username">
+	<br><br>
+	<div id="user"></div>
+	<br><br>
+
+	<input type="text" id="userName2" placeholder="username">
+	<br><br>
+	<div id="user2"></div>
+
+	<div id="bob">
+		<h1>Mouse in/out</h1>
+	</div>
+	<div id="joe">
+		<h3>now you see me...</h3>
+	</div>
+
+	<div id="animateThis" style="width:20px; overflow:hidden; background-color:#ccc;">
+		<h1>this gets animated</h1>
+	</div>
+
+	<div id="click">
+		<h1>Click This</h1>
+	</div>
+	<div id="reaction">
+		<p>affect this</p>
+	</div>
+
+	<div id="click2">
+		<h1>Double Click This</h1>
+	</div>
+	<div id="reaction2">
+		<p>affect this</p>
+	</div>
+
+	<table id="listPeople">
+		<tr>
+			<th>Name</th>
+			<th>Age</th>
+			<th>Gender</th>
+		</tr>
+	</table>
+
+	<h1>Date Formatting</h1>
+	<div id="thisDate">
+	</div>
+
+	<table id="listPeople">
+		<tr>
+			<th>Name</th>
+			<th>Age</th>
+			<th>Gender</th>
+		</tr>
+	</table>
+
+	<h1>Transversal</h1>
+
+	<div id="commonAncestor">
+		<div>
+			<div>
+				<div>
+					<p class="clicker">click here...</p>
+				</div>
+			</div>
+		</div>
+		<div class="targetContainer">
+			<div>
+				<div>
+					<p>and affect here</p>
+				</div>
+				<p>but not here</p>
+			</div>
+		</div>
+	</div>
+	<div class="targetContainer">
+		<div>
+			<div>
+				<p>or here</p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

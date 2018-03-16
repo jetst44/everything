@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JS DOM</title>
+</head>
+
+<body>
+	<p>see full list of style object <a href="https://www.w3schools.com/jsref/dom_obj_style.asp">here</a></p>
+	<p>see full list of DOM Properties Methods 
+		<a href="https://www.w3schools.com/jsref/dom_obj_all.asp">here</a>
+	</p>
+
+	<img src="kitty.jpg" id="saywhat" class="imgclass" style="width:200px;" alt="say whaaaaaaa!">
+
+	<img id="kit2" src="kitty.jpg" style="width:200px;">
+
+	<p><b id="findImgSrc"></b></p>
+
+	<hr>
+
+	<p>paragraph 1</p>
+	<p class="pclass">paragraph 2</p>
+	<p class="pclass">paragraph 3</p>
+	<p class="pNotThis">paragraph 4</p>
+
+	<hr>
+
+	<div id="pText"></div>
+
+	<hr>
+
+	<p><b class="pFirst"></b></p>
+	<script>
+		//document is an object
+		console.dir(document);
+
+		//get element by id and find values from it
+		console.dir(document.getElementById('saywhat'));
+		a = document.getElementById('saywhat').src;
+		b = document.getElementById('saywhat').className;
+		c = document.getElementById('saywhat').style.width;
+		d = document.getElementById('saywhat').alt;
+		e = a + '<br>' + b + '<br>' + c + '<br>' + d;
+		document.getElementById('findImgSrc').innerHTML = e;
+
+		//set values
+		document.getElementById('kit2').src = 'kitten.jpg';
+		document.getElementById('kit2').style.border = '1px #f00 solid';
+
+		//find element by class
+		f = document.getElementsByClassName("pclass");
+		for (g = 0; g < f.length; ++g) {
+			p = document.getElementById("pText");
+			p.innerHTML += "<p>" + g + ": " + f[g].innerHTML + "<p>";
+		}
+
+		//find element by css selector
+		h = document.querySelectorAll('p')[3].innerHTML;
+		document.getElementsByClassName('pFirst')[0].innerHTML = h;
+		document.getElementsByClassName('pFirst')[0].style.color = "#f00";
+		document.getElementsByClassName('pFirst')[0].setAttribute("id", "hi");
+
+	</script>
+</body>
+</html>

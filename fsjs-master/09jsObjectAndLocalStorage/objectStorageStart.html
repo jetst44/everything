@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Super List</title>
+</head>
+<style type="text/css">
+*{
+	font-family: sans-serif;
+	color:#666;
+}
+body{
+	background-color: #f3f3f3;
+	font-size: 16px;
+}
+input{
+	font-size: 20px;
+	padding:10px;
+}
+button{
+	font-size: 20px;
+	padding:10px;
+	border-radius: 10px;
+	background: #fff;
+}
+ul {list-style: none}
+li:before{
+content: "\25AA";
+color:#f00;
+font-size: 30px;
+vertical-align: super;
+display: inline-block;
+width: 1em;
+margin-left: -1em
+}
+li, p, td{
+	font-size: 18px;
+}
+table{
+	width:100%;
+	background-color: #fff;
+}
+th{
+	text-align: left;
+	padding:10px;
+	background-color: #ddd;
+}
+td{
+	text-align: left;
+	padding:10px;
+}
+tr{background-color: #fafafa;}
+tr:nth-child(odd){
+		background-color: #f3f3f3;
+}
+.container{
+	position: relative;
+	width:500px;
+	margin: 0px auto;
+	padding:1px 20px 20px 20px;
+	background-color: #ddd;
+}
+</style>
+<body>
+<div class="container">
+	<h1>SuperHero List</h1>
+	<hr>
+	<input type="text" id="name" placeholder="Superhero">
+	<input type="text" id="rname" placeholder="Real Name">
+	<br><br>
+	<button onclick="addition()">add to list</button>
+	<button onclick="localStorage.clear(), location.reload()">purge archives</button>
+	<br><br>
+	<div>
+		<h2>My Favorite Heroes:</h2>
+		<ul id="result"></ul>
+	</div>
+	<hr>
+	<div>
+		<h2>Heroes Archives:</h2>
+		<table id="savedheroes">
+			<tr>
+				<th>HERO</th>
+				<th>ALIAS</th>
+			</tr>
+		</table>
+	</div>
+</div>
+
+<script>
+
+</script>
+</body>
+</html>

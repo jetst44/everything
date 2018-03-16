@@ -1,0 +1,50 @@
+<html>
+<head>
+	<title>Image Gallery</title>
+	<style>
+		#container{margin:0 auto; max-width:600px;}
+		#display{max-width:100%;}
+		#thumbs{list-style: none; padding:0px; text-align: center;}
+		li{ display: inline-block;}
+		#thumbs img{
+			max-width:50px;
+			border:1px solid #f00;
+		}
+
+	</style>
+</head>
+<body>
+	<div id="container">
+		<img id="display" src="img/full/img2.jpg">
+		<ul id="thumbs">
+			<li><img src="img/thumb/img1.jpg"></li>
+			<li><img src="img/thumb/img2.jpg"></li>
+			<li><img src="img/thumb/img3.jpg"></li>
+		</ul>
+	</div>
+	<script>
+		//store thumbs in array
+		thumbs = (document.querySelectorAll("#thumbs img"));
+
+		//loop through the array of thumbs
+		for (i = 0; i < thumbs.length; ++i){
+			//bind a click event...
+			thumbs[i].onclick = function(){
+				//that will find the thumbnails image source
+				imgsrc = this.src;
+				//switch the directory from "thumb" to "full"
+				imgsrc = imgsrc.replace('thumb','full');
+				//now that our variable is calling the large version of the thumbnail assign it to the display
+				document.getElementById('display').src = imgsrc;
+
+				//Another way to build the same function. More complex and explicit
+				/*
+				imgsrc = imgsrc.split('/');
+				imgsrc = imgsrc[imgsrc.length-1];
+				document.getElementById('displayer').src = imgsrc;
+				*/
+			};
+		};
+	</script>
+</body>
+</html>

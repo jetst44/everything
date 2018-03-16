@@ -1,0 +1,207 @@
+<!doctype html>
+<html>
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Document</title>
+	<style>
+		* {
+			font-family: helvetica;
+			padding: 0;
+			margin: 0;
+			color: #666;
+			box-sizing: border-box;
+		}
+
+		#container {
+			max-width: 1200px;
+			margin: 40px auto;
+			border: 1px solid #000;
+		}
+
+		.prod {
+			width: 289px;
+			border: 1px solid #000;
+			margin: 5px;
+			display: inline-block;
+			vertical-align: top;
+			padding: 20px;
+			height: 430px;
+		}
+
+		.prod img {
+			max-width: 100%;
+			border: 4px double #000;
+			border-radius: 10px;
+			margin: 10px 0px;
+		}
+
+		.prod h5 {
+			color: #F00;
+		}
+
+		.btn {
+			display: inline-block;
+			background-color: #f00;
+			color: #fff;
+			text-decoration: none;
+			padding: 10px;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="container">
+		<!--<div class="prod">
+			<h6>1 / Furniture</h6>
+			<img src="http://media.cymaxstores.com/Images/5/436110-SM2.jpg">
+			<p>Bush Somerset Collection Bookcase</p>
+			<h5>$261.96</h5>
+			<p><a href="proddetail.html#1" class="btn">Buy Now</a></p>
+		</div>-->
+	</div>
+
+	<script>
+		products = [{
+				"id": 1,
+				"category": "Furniture",
+				"product": "Bush Somerset Collection Bookcase",
+				"price": 261.96,
+				"image": "img/436110-SM2.jpg"
+			},
+			{
+				"id": 2,
+				"category": "Furniture",
+				"product": "Hon Deluxe Fabric Upholstered Stacking Chairs, Rounded Back",
+				"price": 731.94,
+				"image": "img/UTHONIS107CU42.jpg"
+			},
+			{
+				"id": 3,
+				"category": "Office Supplies",
+				"product": "Self-Adhesive Address Labels for Typewriters by Universal",
+				"price": 14.62,
+				"image": "img/242963.jpg"
+			},
+			{
+				"id": 4,
+				"category": "Furniture",
+				"product": "Bretford CR4500 Series Slim Rectangular Table",
+				"price": 957.57,
+				"image": "img/Bretford_CR4500_CY_Folding_C_Leg_Rectangular_Table_254498.jpg"
+			},
+			{
+				"id": 5,
+				"category": "Office Supplies",
+				"product": "Eldon Fold 'N Roll Cart System",
+				"price": 22.36,
+				"image": "img/2035356.jpg"
+			},
+			{
+				"id": 6,
+				"category": "Furniture",
+				"product": "Eldon Expressions Wood and Plastic Desk Accessories, Cherry Wood",
+				"price": 48.86,
+				"image": "img/Rolodex-Executive-Cherry-Woodline-II-Desk-Pad-P14354855.jpg"
+			},
+			{
+				"id": 7,
+				"category": "Office Supplies",
+				"product": "Newell 322",
+				"price": 7.28,
+				"image": "img/1328732_a397ed3fe937774e17d89d81378ef304.jpg"
+			},
+			{
+				"id": 8,
+				"category": "Technology",
+				"product": "Mitel 5320 IP Phone VoIP phone",
+				"price": 907.15,
+				"image": "img/41pVRkwUk4L_SY355_.jpg"
+			},
+			{
+				"id": 9,
+				"category": "Office Supplies",
+				"product": "DXL Angle-View Binders with Locking Rings by Samsill",
+				"price": 18.5,
+				"image": "img/samsill-dxl-soft-click-locking-d-ring-4-navy-view-binder-lg01.jpg"
+			},
+			{
+				"id": 10,
+				"category": "Office Supplies",
+				"product": "Belkin F5C206VTEL 6 Outlet Surge",
+				"price": 114.95,
+				"image": "img/s-l225.jpg"
+			},
+			{
+				"id": 11,
+				"category": "Furniture",
+				"product": "Chromcraft Rectangular Conference Tables",
+				"price": 1706.18,
+				"image": "img/cd85w-b1.jpg"
+			},
+			{
+				"id": 12,
+				"category": "Technology",
+				"product": "Konftel 250 Conference phone - Charcoal black",
+				"price": 911.42,
+				"image": "img/910101065-4.jpg"
+			},
+			{
+				"id": 13,
+				"category": "Office Supplies",
+				"product": "Xerox 1967",
+				"price": 15.55,
+				"image": "img/8c503136-d2af-41f0-a308-45085695c00f.jpg"
+			},
+			{
+				"id": 14,
+				"category": "Office Supplies",
+				"product": "Fellowes PB200 Plastic Comb Binding Machine",
+				"price": 407.97,
+				"image": "img/61MVVT4vpkS._SY355_.jpg"
+			},
+			{
+				"id": 15,
+				"category": "Office Supplies",
+				"product": "Holmes Replacement Filter for HEPA Air Cleaner, Very Large Room, HEPA Filter",
+				"price": 68.81,
+				"image": "img/F9YFBUMFU54U9YE.jpg"
+			},
+			{
+				"id": 16,
+				"category": "Office Supplies",
+				"product": "Storex DuraTech Recycled Plastic Frosted Binders",
+				"price": 2.54,
+				"image": "img/1eaaaf38ddf411bb40e6586461778078.jpg"
+			}
+		];
+		for (i in products) {
+//			console.log(i);
+//			console.log(products[i]);
+			//if(products[i].category == "Furniture"){
+			document.getElementById("container").innerHTML += '<div class="prod"><div>';
+			document.getElementsByClassName('prod')[i].innerHTML = 
+			`<h6>`+products[i].id+` `+products[i].category+`</h6>
+			<img src="`+products[i].image+`">
+			<p>`+products[i].product+`</p>
+			<h5>$`+products[i].price+`</h5>
+			<p><a href="proddetail.html#`+products[i].id+`" class="btn">Buy Now</a></p>`;
+			//}
+			
+			function salesTax(sub,tax){
+			var sat = sub * tax;
+			return sat;
+			}
+			
+			/*var OA = x;
+			if(OA > 300 ){
+			   cm = "$10 off";
+			   } else if( OA <= 300 && OA >= 100){
+				   cm = "$5 off";
+			   }else{
+				   cm = "thank you";
+			   }*/
+		}
+	</script>
+</body>
+</html>

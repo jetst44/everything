@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>js events</title>
+</head>
+<body>
+	<input type="text" id="fn" placeholder="First Name">
+	<br><br>
+	<input type="text" id="ln" placeholder="Last Name">
+	<hr>
+	<p>Keyboard value: <b id="keyValue"></b></p>
+	<hr>
+	<button id="clickEvent">Click event</button>
+	<br>
+	<p>Click value: <b id="clickValue"></b></p>
+	<hr>
+	<p id="hoverEvent">Hover value: <b id="hoverValue"></b></p>
+	<hr>
+	<p>see full list of events: <a href="https://www.w3schools.com/jsref/dom_obj_event.asp">here</a></p>
+	<script>
+
+		//just a function that takes values from both iputs and concatinates them into var full
+		function process() {
+			fn = document.getElementById('fn').value;
+			ln = document.getElementById('ln').value;
+			full = fn + " " + ln;
+		}
+
+		//key release event
+		document.getElementById('fn').onkeyup = function(){
+			process();
+			document.getElementById('keyValue').innerHTML = full;
+		}
+
+		document.getElementById('ln').onkeyup = function(){
+			process();
+			document.getElementById('keyValue').innerHTML = full;
+		}
+
+		//click event
+		document.getElementById('clickEvent').onclick = function(){
+			process();
+			document.getElementById('clickValue').innerHTML = full;
+		}
+
+		//hover event
+		document.getElementById('hoverEvent').onmouseover = function(){
+			process();
+			document.getElementById('hoverValue').innerHTML = full;
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>js</title>
+</head>
+<body>
+	<script>
+		//Prototyping an Object
+		//Create an Object
+		function Person(f, l, a, e) {
+			this.firstName = f;
+			this.lastName = l;
+			this.age = a;
+			this.eyeColor = e;
+		}
+
+		//build a method called sayHello for the Object called 'Person'
+		Person.prototype.sayHello = function() {
+			document.write("Hi! I'm " + this.firstName + "<br>");
+		};
+
+		//Create new instances of 'Person'
+		var me = new Person('Rose');
+		var dad = new Person("John", "Doe", 50, "blue");
+		var mom = new Person("Sally", "Rally", 48, "green");
+
+		// test objects
+		document.write("My father is " + dad.age + ". My mother is " + mom.age + "<br>");
+
+		// test prototype of sayHello method.
+		me.sayHello();
+		dad.sayHello();
+
+		//or
+		new Person('bill').sayHello();
+	</script>
+</body>
+</html>
